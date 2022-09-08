@@ -16,11 +16,11 @@ function fish_prompt_get_left_prompt --description 'Get first line left prompt c
     if [ (prompt_pwd) = '~' ]
         printf '  ~ '
         set_color $cl_blue_2 -b normal
-        printf ''
+        printf ''
     else if [ (prompt_pwd) = '/' ]
         printf '  / '
         set_color $cl_blue_2 -b normal
-        printf ''
+        printf ''
     else
         printf '  '
         set_color $cl_blue_2 -b $cl_blue_3
@@ -28,7 +28,7 @@ function fish_prompt_get_left_prompt --description 'Get first line left prompt c
         set_color $cl_black -b $cl_blue_3
         printf ' %s ' (prompt_pwd)
         set_color $cl_blue_3 -b normal
-        printf ''
+        printf ''
     end
     set_color normal
 
@@ -37,12 +37,12 @@ function fish_prompt_get_left_prompt --description 'Get first line left prompt c
         set -l cl_gorse 'FFEB3B'
         set -l cl_empress '757575'
         set -l cl_black '000000'
-        set_color $cl_gorse -b normal
-        printf ''
         set_color $cl_black -b $cl_gorse
-        printf '  '
-        set_color $cl_empress -b $cl_gorse
-        printf ''
+        printf ''
+        set_color $cl_black -b $cl_gorse
+        printf ' on   '
+        set_color $cl_gorse -b $cl_empress
+        printf ''
         set_color normal -b $cl_empress
         printf ' %s' (fish_git_prompt '%s')
         set_color normal
