@@ -63,6 +63,11 @@ if [ -f $HOME/.config/fish/aliases/git.fish ]
     source $HOME/.config/fish/aliases/git.fish
 end
 
+# Colorls
+if [ -f $HOME/.config/fish/aliases/colorls.fish ]
+    source $HOME/.config/fish/aliases/colorls.fish
+end
+
 #
 ### GIT PROMPT CONFIGURATION
 # See the file /usr/local/share/fish/functions/fish_git_prompt.fish
