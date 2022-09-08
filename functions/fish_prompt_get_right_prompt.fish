@@ -5,15 +5,15 @@ function fish_prompt_get_right_prompt --description 'Get right prompt content'
         set -l cl_empress '757575'
         set -l cl_black '000000'
         set_color $cl_gorse -b normal
-        printf ''
+        printf ''
         set_color $cl_black -b $cl_gorse
-        printf '  '
+        printf ' ON   '
         set_color $cl_empress -b $cl_gorse
         printf ''
         set_color normal -b $cl_empress
         printf ' %s' (fish_git_prompt '%s')
         set_color normal
     else
-        printf ' '
+        printf ' off   '
     end
 end
