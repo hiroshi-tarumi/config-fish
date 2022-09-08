@@ -47,6 +47,7 @@ function fish_prompt_get_left_prompt --description 'Get first line left prompt c
         printf ' %s' (fish_git_prompt '%s')
         set_color normal
     else
+        set_color $cl_black -b $cl_gorse
         printf ' off '
     end
 end
