@@ -9,8 +9,7 @@ function fish_prompt_get_left_prompt --description 'Get first line left prompt c
         printf '(%s)' $PYENV_VERSION
     end
     printf ' %s ' (whoami)
-    set_color normal
-    set_color $cl_blue_1 -b $cl_blue_2
+    set_color normal -b $cl_blue_2
     printf ''
     set_color $cl_black -b $cl_blue_2
     if [ (prompt_pwd) = '~' ]

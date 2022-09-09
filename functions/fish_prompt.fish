@@ -23,7 +23,5 @@ function fish_prompt --description 'Write out the prompt'
     printf '\n'
     set_color white -b normal
     printf ' >_ '
-    set_color $color_cursor -b normal
-    printf ' '
     set_color normal
 end
