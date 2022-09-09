@@ -80,7 +80,7 @@ function fish_prompt_get_left_prompt --description 'Get first line left prompt c
     
     else
     
-        printf ' off   '
+        printf ' off  '
     
     end
 
