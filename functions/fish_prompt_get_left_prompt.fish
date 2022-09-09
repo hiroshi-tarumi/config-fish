@@ -3,7 +3,7 @@ function fish_prompt_get_left_prompt --description 'Get first line left prompt c
     set -l cl_blue_2 '428CF1'
     set -l cl_blue_3 '78A8F2'
     set -l cl_black '000000'
-    set_color white -b $cl_blue_1
+    set_color white -b normal
     # If we are in a virtualenv, we display its name
     if set -q VIRTUAL_ENV; and set -q PYENV_VERSION
         printf '(%s)' $PYENV_VERSION
