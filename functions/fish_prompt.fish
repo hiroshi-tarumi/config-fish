@@ -1,27 +1,20 @@
-function fish_prompt --description 'Write out the prompt'
-    set last_status $status
+function fish_prompt --description 'Informative prompt'
+    #Save the return status of the previous command
+    set -l last_pipestatus $pipestatus
+    set -lx __fish_last_status $status # Export for __fish_print_pipestatus.
 
-    # get prompts for the first line
-    set -l left_prompt (fish_prompt_get_left_prompt)
-    set -l right_prompt (fish_prompt_get_right_prompt)
+    if functions -q fish_is_root_user; and fish_is_root_user
+        printf '%s@%s %s%s%s# ' $USER (prompt_hostname) (set -q fish_color_cwd_root
+                                                         and set_color $fish_color_cwd_root
+                                                         or set_color $fish_color_cwd) \
+            (prompt_pwd) (set_color normal)
+    else
+        set -l status_color (set_color $fish_color_status)
+        set -l statusb_color (set_color --bold $fish_color_status)
+        set -l pipestatus_string (__fish_print_pipestatus "[" "]" "|" "$status_color" "$statusb_color" $last_pipestatus)
 
-    # spaces
-    set -l left_length (fish_prompt_visual_length $left_prompt)
-    set -l right_length (fish_prompt_visual_length $right_prompt)
-    set -l spaces (math "$COLUMNS - $left_length - $right_length")
-
-    # Display first line
-    printf '\n'
-    printf '%s' $left_prompt
-    set_color -b normal
-    printf "%-"$spaces"s" " "
-    printf '%s' $right_prompt
-    set_color normal
-
-    # Display second line
-    set -l color_cursor '8829F9'
-    printf '\n'
-    set_color white -b normal
-    printf ' >_ '
-    set_color normal
+        printf '[%s] %s%s@%s %s%s %s%s%s \n> ' (date "+%H:%M:%S") (set_color brblue) \
+            $USER (prompt_hostname) (set_color $fish_color_cwd) $PWD $pipestatus_string \
+            (set_color normal)
+    end
 end
